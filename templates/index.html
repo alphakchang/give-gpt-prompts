@@ -4,18 +4,8 @@
         <link rel="stylesheet" href="./static/style.css">
     </head>
     <body>
-      <!--Start button -->
-      <!-- <div class="svg-wrapper">
-        <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-          <rect id="shape" height="40" width="150" />
-          <div id="text">
-            <a href=""><span class="spot"></span>Button 1</a>
-          </div>
-        </svg>
-      </div> -->
-      <!--End button -->
-      <!-- Loading animation-->
-      <!-- <div class="middle">
+      <!--Start of loading animation -->
+      <div class="loading_animation" id="loading_display">
         <div class="bar bar1"></div>
         <div class="bar bar2"></div>
         <div class="bar bar3"></div>
@@ -24,15 +14,14 @@
         <div class="bar bar6"></div>
         <div class="bar bar7"></div>
         <div class="bar bar8"></div>
-      </div> -->
+      </div>
       <!--End of loading animation -->
         <h1>Enter source text below</h1>
-        <textarea class="user_input" id="source_text" placeholder="Enter source text"></textarea>
+        <textarea class="user_input" id="sourceText" placeholder="Enter source text"></textarea>
         <h1>Enter prompts below</h1>
-        <textarea class="user_input" id="prompts" placeholder="Enter your prompts"></textarea>
+        <textarea class="user_input" id="promptText" placeholder="Enter your prompts"></textarea>
         <p></p>
-        <button onclick="myFunction()">Grab</button>
-        <!-- <p id="grabbed_text"></p> -->
+        <button class="niceButton" role="button" onclick="read_input()">Go</button>
         <p id="result"></p>
         <script src="./static/scripts.js"></script>
     </body>

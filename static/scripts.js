@@ -1,9 +1,20 @@
-function myFunction() {
-    var source_text = document.getElementById("source_text").value;
-    var prompts = document.getElementById("prompts").value;
-    // document.getElementById("grabbed_text").innerText = prompts + ": "+source_text; //can also try innerHTML
-    var final_input = prompts + ": "+source_text;
+function read_input() {
+    var sourceText = document.getElementById("sourceText").value;
+    var promptText = document.getElementById("promptText").value;
+    if (promptText.trim() === "") {
+        document.getElementById("result").innerHTML = "Please enter prompts for this to work.";
+    } else {
+        loading_on();
+        if (sourceText.trim() === "") {
+            var final_input = promptText;
+        } else {
+            var final_input = promptText + ": "+sourceText;
+        }
+        runGPT(final_input);
+    }
+}
 
+function runGPT(final_input) {
     fetch('/gpt', {
         method: 'POST',
         body: JSON.stringify({'final_input': final_input}),
@@ -14,5 +25,18 @@ function myFunction() {
     .then(response => response.json())
     .then(data => {
         document.getElementById("result").innerHTML = data.reply;
-    });
+    })
+    .then(() => {
+        loading_off();
+    })
+}
+
+function loading_on() {
+    var div = document.getElementById('loading_display');
+    div.style.display = 'inline';
+}
+
+function loading_off() {
+    var div = document.getElementById('loading_display');
+    div.style.display = 'none';
 }
