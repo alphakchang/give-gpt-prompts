@@ -1,28 +1,47 @@
 <html>
     <head>
         <title>Prompt the AI</title>
-        <link rel="stylesheet" href="./static/style.css">
+        <link rel="stylesheet" href="./static/css/style.css">
+        <link rel="stylesheet" href="./static/css/webslides.css">
     </head>
     <body>
-      <!--Start of loading animation -->
-      <div class="loading_animation" id="loading_display">
-        <div class="bar bar1"></div>
-        <div class="bar bar2"></div>
-        <div class="bar bar3"></div>
-        <div class="bar bar4"></div>
-        <div class="bar bar5"></div>
-        <div class="bar bar6"></div>
-        <div class="bar bar7"></div>
-        <div class="bar bar8"></div>
-      </div>
-      <!--End of loading animation -->
-        <h1>Enter source text below</h1>
-        <textarea class="user_input" id="sourceText" placeholder="Enter source text"></textarea>
-        <h1>Enter prompts below</h1>
-        <textarea class="user_input" id="promptText" placeholder="Enter your prompts"></textarea>
-        <p></p>
-        <button class="niceButton" role="button" onclick="read_input()">Go</button>
-        <p id="result"></p>
-        <script src="./static/scripts.js"></script>
+        <main role="main">
+          <article id="webslides" class="vertical">
+            <section>
+              <div class="wrap aligncenter">
+                  <!--Start of loading animation -->
+                  <div class="loading_animation" id="loading_display">
+                    <div class="bar bar1"></div>
+                    <div class="bar bar2"></div>
+                    <div class="bar bar3"></div>
+                    <div class="bar bar4"></div>
+                    <div class="bar bar5"></div>
+                    <div class="bar bar6"></div>
+                    <div class="bar bar7"></div>
+                    <div class="bar bar8"></div>
+                  </div>
+                  <!--End of loading animation -->
+                    <h2>Enter source text below</h2>
+                    <textarea class="user_input" id="sourceText" placeholder="Enter source text"></textarea>
+                    <h2>Enter prompts below</h2>
+                    <textarea class="user_input" id="promptText" placeholder="Enter your prompts"></textarea>
+                    <p></p>
+                    <button class="niceButton" role="button" onclick="read_input()">Go</button>
+              </div>
+            </section>
+            <section>
+              <div class="wrap aligncenter">
+                <pre>
+                  <p id="result"></p>
+                </pre>
+              </div>
+            </section>
+          </article>
+        </main>
+      <script src="./static/js/scripts.js"></script>
+      <script src="./static/js/webslides.js"></script>
+      <script>
+        window.ws = new WebSlides();
+      </script>
     </body>
 </html>

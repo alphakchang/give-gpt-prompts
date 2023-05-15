@@ -28,6 +28,7 @@ function runGPT(final_input) {
     })
     .then(() => {
         loading_off();
+        goNextPage();
     })
 }
 
@@ -39,4 +40,8 @@ function loading_on() {
 function loading_off() {
     var div = document.getElementById('loading_display');
     div.style.display = 'none';
+}
+
+function goNextPage() {
+    window.ws.goNext()
 }

@@ -1,15 +1,9 @@
 
-body {
-  text-align: center;
-  font-family: sans-serif;
-  background-color: #c6d1c2;
-}
-
 textarea.user_input {
     width: 50%;
     height: 200px;
     resize: none;
-    border-radius: 20px;
+    border-radius: 15px;
     padding: 10px;
 }
 
