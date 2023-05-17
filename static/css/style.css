@@ -1,3 +1,32 @@
+#navigation {
+  display: none;
+}
+
+/* Start of alert */
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  margin-bottom: 15px;
+  display: none;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+/* End of alert */
 
 textarea.user_input {
     width: 50%;
@@ -14,14 +43,14 @@ textarea.user_input {
 }
 
 .loading_animation {
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
 }
 .bar {
-  width: 10px;
-  height: 70px;
+  width: 30px;
+  height: 100px;
   background: #fff;
   display: inline-block;
   transform-origin: bottom center;

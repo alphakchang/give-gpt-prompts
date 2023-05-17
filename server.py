@@ -12,12 +12,6 @@ if __name__ == '__main__':
 def index():
     return render_template('index.html')
 
-@app.route('/my-endpoint', methods=['POST'])
-def my_endpoint():
-    # Call the Python function you want to trigger here
-    my_function()
-    return '', 204
-
 @app.route('/gpt', methods=['POST'])
 def gpt():
     completion = openai.ChatCompletion.create(
@@ -30,6 +24,12 @@ def gpt():
     reply = completion.choices[0].message.content
     return {'reply': reply}
 
-def my_function():
-    print("testing")
-    return None
+# @app.route('/my-endpoint', methods=['POST'])
+# def my_endpoint():
+#     # Call the Python function you want to trigger here
+#     my_function()
+#     return '', 204
+
+# def my_function():
+#     print("testing")
+#     return None

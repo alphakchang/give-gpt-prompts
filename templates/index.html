@@ -1,8 +1,8 @@
 <html>
     <head>
         <title>Prompt the AI</title>
-        <link rel="stylesheet" href="./static/css/style.css">
         <link rel="stylesheet" href="./static/css/webslides.css">
+        <link rel="stylesheet" href="./static/css/style.css">
     </head>
     <body>
         <main role="main">
@@ -21,12 +21,16 @@
                     <div class="bar bar8"></div>
                   </div>
                   <!--End of loading animation -->
-                    <h2>Enter source text below</h2>
+                    <h2>Source Text</h2>
                     <textarea class="user_input" id="sourceText" placeholder="Enter source text"></textarea>
-                    <h2>Enter prompts below</h2>
+                    <h2>Prompts</h2>
                     <textarea class="user_input" id="promptText" placeholder="Enter your prompts"></textarea>
-                    <p></p>
-                    <button class="niceButton" role="button" onclick="read_input()">Go</button>
+                    <div class="alert" id="alert">
+                      <span class="closebtn" onclick="closeAlert()">&times;</span>
+                      Please enter prompts for this to work.
+                    </div>
+                    <br>
+                    <button class="niceButton" role="button" onclick="read_input()" id="goButton">Go</button>
               </div>
             </section>
             <section>

@@ -2,8 +2,10 @@ function read_input() {
     var sourceText = document.getElementById("sourceText").value;
     var promptText = document.getElementById("promptText").value;
     if (promptText.trim() === "") {
-        document.getElementById("result").innerHTML = "Please enter prompts for this to work.";
+        showAlert();
     } else {
+        var button = document.getElementById("goButton");
+        button.disabled = true;
         loading_on();
         if (sourceText.trim() === "") {
             var final_input = promptText;
@@ -29,6 +31,8 @@ function runGPT(final_input) {
     .then(() => {
         loading_off();
         goNextPage();
+        var button = document.getElementById("goButton");
+        button.disabled = false;
     })
 }
 
@@ -44,4 +48,14 @@ function loading_off() {
 
 function goNextPage() {
     window.ws.goNext()
+}
+
+function closeAlert() {
+    var alert = document.getElementById('alert');
+    alert.style.display = 'none';
+}
+
+function showAlert() {
+    var alert = document.getElementById('alert');
+    alert.style.display = 'block';
 }
