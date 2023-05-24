@@ -28,12 +28,18 @@
                     <textarea class="user_input" id="sourceText" placeholder="Here you can enter source text or provide some context for the AI to refer to"></textarea>
                     <h2>Prompts</h2>
                     <textarea class="user_input" id="promptText" placeholder="Enter your prompts, this is required"></textarea>
-                    <div class="alert" id="alert">
-                      <span class="closebtn" onclick="closeAlert()">&times;</span>
+                    <div class="alert" id="prompt_alert">
+                      <span class="closebtn" onclick="closePromptAlert()">&times;</span>
                       Please enter prompts for this to work.
                     </div>
+                    <div class="alert" id="overload_alert">
+                      <span class="closebtn" onclick="closeOverloadAlert()">&times;</span>
+                      We've detected that GPT model is currently overloaded!
+                      <br>
+                      Your prompts are queued and will get a response when GPT model is available.
+                    </div>
                     <br>
-                    <button class="niceButton" role="button" onclick="read_input()" id="goButton">Go</button>
+                    <button class="niceButton" role="button" onclick="readInput()" id="goButton">Go</button>
               </div>
             </section>
             <section>

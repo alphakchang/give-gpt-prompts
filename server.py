@@ -22,6 +22,7 @@ def gpt():
         }]
     )
     reply = completion.choices[0].message.content
+    # reply = 1/0
     return {'reply': reply}
 
 # @app.route('/my-endpoint', methods=['POST'])

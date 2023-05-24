@@ -1,10 +1,10 @@
-function read_input() {
+function readInput() {
     var sourceText = document.getElementById("sourceText").value;
     var promptText = document.getElementById("promptText").value;
     if (promptText.trim() === "") {
-        showAlert();
+        showPromptAlert();
     } else {
-        closeAlert();
+        closePromptAlert();
         var button = document.getElementById("goButton");
         button.disabled = true;
         loading_on();
@@ -25,12 +25,19 @@ function runGPT(final_input) {
             'Content-Type': 'application/json'
         }
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            showOverloadAlert();
+            readInput();
+        }
+        return response.json();
+    })
     .then(data => {
         document.getElementById("result").innerHTML = data.reply;
     })
     .then(() => {
         loading_off();
+        closeOverloadAlert();
         goNextPage();
         var button = document.getElementById("goButton");
         button.disabled = false;
@@ -51,12 +58,22 @@ function goNextPage() {
     window.ws.goNext()
 }
 
-function closeAlert() {
-    var alert = document.getElementById('alert');
+function closePromptAlert() {
+    var alert = document.getElementById('prompt_alert');
     alert.style.display = 'none';
 }
 
-function showAlert() {
-    var alert = document.getElementById('alert');
+function showPromptAlert() {
+    var alert = document.getElementById('prompt_alert');
+    alert.style.display = 'block';
+}
+
+function closeOverloadAlert() {
+    var alert = document.getElementById('overload_alert');
+    alert.style.display = 'none';
+}
+
+function showOverloadAlert() {
+    var alert = document.getElementById('overload_alert');
     alert.style.display = 'block';
 }
