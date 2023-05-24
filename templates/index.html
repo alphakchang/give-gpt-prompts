@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Prompt the AI</title>
+        <link rel="icon" href="./static/images/rocket.ico" type="image/x-icon">
         <link rel="stylesheet" href="./static/css/style.css">
         <link rel="stylesheet" href="./static/css/webslides.css">
     </head>
@@ -8,6 +9,7 @@
         <main role="main">
           <article id="webslides" class="vertical">
             <section>
+              <span class="background" style="background-image: url('./static/images/alpha_logo.png'); background-size: 150px, 150px; background-position: top left; margin: 50px"></span>
               <div class="wrap aligncenter">
                   <!--Start of loading animation -->
                   <div class="loading_animation" id="loading_display">
@@ -21,10 +23,11 @@
                     <div class="bar bar8"></div>
                   </div>
                   <!--End of loading animation -->
-                    <h2>Source Text</h2>
-                    <textarea class="user_input" id="sourceText" placeholder="Enter source text"></textarea>
+                    
+                    <h2>Source Text or Context</h2>
+                    <textarea class="user_input" id="sourceText" placeholder="Here you can enter source text or provide some context for the AI to refer to"></textarea>
                     <h2>Prompts</h2>
-                    <textarea class="user_input" id="promptText" placeholder="Enter your prompts"></textarea>
+                    <textarea class="user_input" id="promptText" placeholder="Enter your prompts, this is required"></textarea>
                     <div class="alert" id="alert">
                       <span class="closebtn" onclick="closeAlert()">&times;</span>
                       Please enter prompts for this to work.

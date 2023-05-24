@@ -4,6 +4,7 @@ function read_input() {
     if (promptText.trim() === "") {
         showAlert();
     } else {
+        closeAlert();
         var button = document.getElementById("goButton");
         button.disabled = true;
         loading_on();

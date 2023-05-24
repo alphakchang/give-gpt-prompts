@@ -3,9 +3,14 @@
 }
 
 #webslides {
-  /* background: url(./static/images/background.jpg) left top repeat; */
   background-color: rgb(229, 238, 235);
 }
+
+
+/* #webslides {
+  background-image: url('./static/images/alpha_logo.png');
+  background-position: right top;
+} */
 
 /* Start of alert */
 .alert {
