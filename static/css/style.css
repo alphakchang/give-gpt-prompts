@@ -39,11 +39,15 @@
 /* End of alert */
 
 textarea.user_input {
-    width: 50%;
-    height: 200px;
+    width: 60%;
+    height: 220px;
     resize: none;
     border-radius: 15px;
     padding: 10px;
+}
+
+#promptText {
+  height: 90px;
 }
 
 
