@@ -23,11 +23,24 @@
                     <div class="bar bar8"></div>
                   </div>
                   <!--End of loading animation -->
-                    
+
+                  <!--Start of tutorial test-->
+                  <div id="tutorial">
+                    <button id="startTutorial" class="niceButton" onclick="showTutorial()">Tutorial</button>
+                  </div>
+                  <!--End of tutorial test-->
+                  <div id="main">
                     <h2>Source Text or Context</h2>
+                    <div id="myTooltip" class="tooltip">
+                      This is the tooltip message.
+                    </div>
                     <textarea class="user_input" id="sourceText" placeholder="Here you can enter source text or provide some context for the AI to refer to"></textarea>
                     <h2>Prompts</h2>
+                    <div id="myTooltip2" class="tooltip">
+                      This is the tooltip message.
+                    </div>
                     <textarea class="user_input" id="promptText" placeholder="Enter your prompts, this is required"></textarea>
+                  </div>
                     <div class="alert" id="prompt_alert">
                       <span class="closebtn" onclick="closePromptAlert()">&times;</span>
                       Please enter prompts for this to work.
@@ -51,8 +64,9 @@
             </section>
           </article>
         </main>
-      <script src="./static/js/scripts.js"></script>
+      
       <script src="./static/js/webslides.js"></script>
+      <script src="./static/js/scripts.js"></script>
       <script>
         window.ws = new WebSlides();
       </script>

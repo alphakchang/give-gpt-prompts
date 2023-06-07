@@ -77,3 +77,11 @@ function showOverloadAlert() {
     var alert = document.getElementById('overload_alert');
     alert.style.display = 'block';
 }
+
+/* Start of tutorial */
+function showTutorial() {
+    var tooltip = document.getElementById("myTooltip2");
+    tooltip.style.display = "block";
+}
+
+/* End of tutorial */
