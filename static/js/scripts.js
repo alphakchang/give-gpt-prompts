@@ -1,3 +1,10 @@
+document.getElementById('promptText').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' && !event.shiftKey && !event.ctrlKey && !event.altKey) {
+        event.preventDefault();
+        document.getElementById('goButton').click();
+    }
+});
+
 function readInput() {
     var sourceText = document.getElementById("sourceText").value;
     var promptText = document.getElementById("promptText").value;
@@ -79,9 +86,38 @@ function showOverloadAlert() {
 }
 
 /* Start of tutorial */
-function showTutorial() {
-    var tooltip = document.getElementById("myTooltip2");
-    tooltip.style.display = "block";
+function showTutorial1() {
+    var tooltip = document.getElementById('myTooltip1');
+    var nextButton = document.getElementById('nextButton1');
+    tooltip.style.visibility = "visible"
+    tooltip.style.opacity = "1";
+    nextButton.style.visibility = "visible"
+    nextButton.style.opacity = "1";
+}
+
+function showTutorial2() {
+    var tooltip = document.getElementById('myTooltip1');
+    var nextButton = document.getElementById('nextButton1');
+    tooltip.style.visibility = "hidden";
+    tooltip.style.opacity = "0";
+    nextButton.style.visibility = "hidden";
+    nextButton.style.opacity = "0";
+
+    tooltip = document.getElementById('myTooltip2');
+    nextButton = document.getElementById('nextButton2');
+    tooltip.style.visibility = "visible"
+    tooltip.style.opacity = "1";
+    nextButton.style.visibility = "visible"
+    nextButton.style.opacity = "1";
+}
+
+function closeTutorial() {
+    var tooltip = document.getElementById('myTooltip2');
+    var nextButton = document.getElementById('nextButton2');
+    tooltip.style.visibility = "hidden";
+    tooltip.style.opacity = "0";
+    nextButton.style.visibility = "hidden";
+    nextButton.style.opacity = "0";
 }
 
 /* End of tutorial */

@@ -9,8 +9,10 @@
         <main role="main">
           <article id="webslides" class="vertical">
             <section>
-              <span class="background" style="background-image: url('./static/images/alpha_logo.png'); background-size: 150px, 150px; background-position: top left; margin: 50px"></span>
-              <div class="wrap aligncenter">
+              <div id="overlay"></div>
+                <span class="background" style="background-image: url('./static/images/alpha_logo.png'); background-size: 150px, 150px; background-position: top left; margin: 50px"></span>
+                <div class="wrap aligncenter">
+
                   <!--Start of loading animation -->
                   <div class="loading_animation" id="loading_display">
                     <div class="bar bar1"></div>
@@ -24,23 +26,28 @@
                   </div>
                   <!--End of loading animation -->
 
-                  <!--Start of tutorial test-->
+                  <!--Start of tutorial button-->
                   <div id="tutorial">
-                    <button id="startTutorial" class="niceButton" onclick="showTutorial()">Tutorial</button>
+                    <button id="startTutorial" class="tutoButton" onclick="showTutorial1()">Tutorial</button>
                   </div>
-                  <!--End of tutorial test-->
+                  <!--End of tutorial button-->
                   <div id="main">
                     <h2>Source Text or Context</h2>
-                    <div id="myTooltip" class="tooltip">
-                      This is the tooltip message.
-                    </div>
-                    <textarea class="user_input" id="sourceText" placeholder="Here you can enter source text or provide some context for the AI to refer to"></textarea>
+                    <textarea class="user_input" id="sourceText" placeholder="Enter source text / context (optional)"></textarea>
+                    <span class="tooltip" id="myTooltip1">Here you can enter anything, the prompts that you enter later below will refer here to look for context.
+                      <br>
+                      <br>
+                      For example, if you enter "cats" here, and then enter "joke" in the prompts below, you'll get a joke about cats.
+                      <button class="nextButton" id="nextButton1" onclick="showTutorial2()">OK</button>
+                    </span>
+
                     <h2>Prompts</h2>
-                    <div id="myTooltip2" class="tooltip">
-                      This is the tooltip message.
-                    </div>
-                    <textarea class="user_input" id="promptText" placeholder="Enter your prompts, this is required"></textarea>
+                    <textarea class="user_input" id="promptText" placeholder="Enter prompts (required)"></textarea>
+                    <span class="tooltip" id="myTooltip2">Type what you want the AI to do, the AI will look above for some context if there is any.
+                    <button class="nextButton" id="nextButton2" onclick="closeTutorial()">OK</button>
+                    </span>
                   </div>
+                  <div class="alerts">
                     <div class="alert" id="prompt_alert">
                       <span class="closebtn" onclick="closePromptAlert()">&times;</span>
                       Please enter prompts for this to work.
@@ -51,9 +58,9 @@
                       <br>
                       Your prompts are queued and will get a response when GPT model is available.
                     </div>
-                    <br>
-                    <button class="niceButton" role="button" onclick="readInput()" id="goButton">Go</button>
-              </div>
+                  </div>
+                  <button class="goButton" role="button" onclick="readInput()" id="goButton">Go</button>
+                </div>
             </section>
             <section>
               <div class="wrap aligncenter">

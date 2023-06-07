@@ -3,9 +3,8 @@
 }
 
 #webslides {
-  background-color: rgb(229, 238, 235);
+  background-color: #faf9f6;
 }
-
 
 /* #webslides {
   background-image: url('./static/images/alpha_logo.png');
@@ -25,7 +24,7 @@ div#main {
   display: none;
 }
 
-/* The close button */
+/* The alert close button */
 .closebtn {
   margin-left: 15px;
   color: white;
@@ -43,11 +42,16 @@ div#main {
 /* End of alert */
 
 textarea.user_input {
+    background-color: transparent;
+    position: relative;  
     width: 50%;
     height: 25vh;
     resize: none;
     border-radius: 15px;
+    border-width: 2px;
+    border-color: #1A1A1A;
     padding: 10px;
+    z-index: 0;
 }
 
 #promptText {
@@ -55,26 +59,26 @@ textarea.user_input {
 }
 
 
-/* Start of Loading Animation CSS */
+/* Start of Loading Animation */
 #loading_display {
   display: none;
 }
 
 .loading_animation {
-  top: 65%;
+  top: 50vh;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
+  z-index: 1;
 }
 .bar {
-  width: 30px;
-  height: 100px;
+  width: 15px;
+  height: 90px;
   background: #fff;
   display: inline-block;
   transform-origin: bottom center;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  /*   box-shadow:5px 10px 20px inset rgba(255,23,25.2); */
   animation: loader 1.2s linear infinite;
 }
 .bar1 {
@@ -116,10 +120,11 @@ textarea.user_input {
     background: transparent;
   }
 }
-/* End of Loading Animation CSS */
+/* End of Loading Animation */
 
-/* Start of Button CSS */
-.niceButton {
+/* Start of Go Button */
+.goButton {
+  position: relative;
   background-color: #EAE1DF;
   border: 2px solid #545E56;
   border-radius: 30px;
@@ -136,50 +141,125 @@ textarea.user_input {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  z-index: 0;
 }
 
-.niceButton:hover {
+.goButton:hover {
   background-color: #FFFFFF;
 }
 
-.niceButton:active {
+.goButton:active {
   box-shadow: #545E56 2px 2px 0 0;
   transform: translate(2px, 2px);
 }
 
 @media (min-width: 768px) {
-  .niceButton {
+  .goButton {
     min-width: 120px;
     padding: 0 25px;
   }
 }
-/* End of Button CSS */
+/* End of Go Button */
+
 /* Start of tutorial */
 
 div#tutorial {
   float: right;
 }
 
+.nextButton {
+  visibility: hidden;
+  transition: opacity 1s ease-out;
+  opacity: 0;
+  position: absolute;
+  background-color: #f1eeee;
+  color: #0f0f0f;
+  border-radius: 20px;
+  border-color: #0f0f0f;
+  border-width: 2px;
+  margin-left: 20px;
+}
+
+.nextButton#nextButton2 {
+  margin-left: 35px;
+}
 
 .tooltip {
-  display: none;
-  position: relative;
+  visibility: hidden;
+  transition: opacity 1s ease-out;
+  opacity: 0;
+  position: absolute;
+  width: 220px;
+  margin-left: 10px;
   background-color: #333;
   color: #fff;
   padding: 10px;
-  border-radius: 4px;
-  z-index: 100;
+  border-radius: 5px;
+  z-index: 20; /* Positioned above the overlay */
 }
 
-/* .tooltip::after {
-  content: "";
+.tooltip::after {
+  content: " ";
   position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
+  top: 50%;
+  right: 100%;
   border-width: 5px;
   border-style: solid;
-  border-color: #333 transparent transparent transparent;
-} */
+  border-color: transparent #333 transparent transparent;
+}
+
+.tutoButton {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.tutoButton:disabled {
+  pointer-events: none;
+}
+
+.tutoButton:hover {
+  color: #fff;
+  background-color: #1d1c1c;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.tutoButton:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+#overlay {
+  position: fixed; /* Fix the position so that it covers the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover the full width */
+  height: 100%; /* Cover the full height */
+  background-color: rgba(0,0,0,0.7); /* Black overlay with 70% opacity */
+  z-index: 10; /* Positioned above the content, but below the tooltip */
+  display: none;
+}
 
 /* End of tutorial */
