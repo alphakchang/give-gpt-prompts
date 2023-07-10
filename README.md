@@ -18,12 +18,17 @@ User can also click on Extract Key Terms to get a list of Key Terms in the sourc
 Q: How to start the server from scratch?
 A: Launch Terminal, and navigate to the folder give-gpt-prompts
    Set the following environment variables:
+   
    `$env:FLASK_RUN_HOST = "0.0.0.0"`
+   
    `$env:FLASK_RUN_PORT = "5277"`
+   
    `$env:FLASK_APP = "server.py"`
+   
    `$host.UI.RawUI.WindowTitle = "Prompt Tool"`
 
    Then type:
+   
    `flask run`
 
 Q: How to restart the server?
