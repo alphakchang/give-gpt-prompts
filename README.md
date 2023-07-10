@@ -18,13 +18,13 @@ User can also click on Extract Key Terms to get a list of Key Terms in the sourc
 Q: How to start the server from scratch?
 A: Launch Terminal, and navigate to the folder give-gpt-prompts
    Set the following environment variables:
-   $env:FLASK_RUN_HOST = "0.0.0.0"
-   $env:FLASK_RUN_PORT = "5277"
-   $env:FLASK_APP = "server.py"
-   $host.UI.RawUI.WindowTitle = "Prompt Tool"
+   `$env:FLASK_RUN_HOST = "0.0.0.0"`
+   `$env:FLASK_RUN_PORT = "5277"`
+   `$env:FLASK_APP = "server.py"`
+   `$host.UI.RawUI.WindowTitle = "Prompt Tool"`
 
    Then type:
-   flask run
+   `flask run`
 
 Q: How to restart the server?
 A: In terminal, if the server is already running, `ctrl+c` to shurt the server, then type `flask run` to start it again.
