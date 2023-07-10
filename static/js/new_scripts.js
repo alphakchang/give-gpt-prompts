@@ -1,8 +1,59 @@
+// create tooltips
 const tooltips = document.querySelectorAll('.tt')
         tooltips.forEach(t => {
             new bootstrap.Tooltip(t);
-        })
+        });
 
+// Select the sourceText & promptText elements by their IDs
+var sourceText = document.getElementById('sourceText');
+var keyTerms = document.getElementById('keyTerms');
+
+// Add the event listeners to the desired elements
+addScrollListeners(sourceText);
+addScrollListeners(keyTerms);
+
+function addScrollListeners(div) {
+    div.addEventListener('mouseover', function() {
+        // highlight the div when the mouse is over it
+        div.classList.toggle('hovered');
+
+        // Add an event listener to the window for the scroll event
+        window.addEventListener('wheel', preventScroll, {passive: false});
+    });
+
+    div.addEventListener('mouseout', function() {
+        // remove the highlight when the mouse leaves the div
+        div.classList.toggle('hovered');
+
+        // Remove the event listener from the window when the mouse leaves the div
+        window.removeEventListener('wheel', preventScroll, {passive: false});
+    });
+
+    div.addEventListener('wheel', allowScroll);
+}
+
+// This function will prevent the default scroll behavior
+function preventScroll(e) {
+    e.preventDefault();
+}
+
+// This function will stop the scroll event from bubbling up to the window
+function allowScroll(e) {
+    e.stopPropagation();
+}
+
+
+// function to get text from sourceText
+function getSourceText() {
+    return document.getElementById("sourceText").value;
+}
+
+// function to get text from promptText
+function getPromptText() {
+    return document.getElementById("promptText").value;
+}
+
+// monitor if user press Enter in promptText
 document.getElementById('promptText').addEventListener('keydown', function(event) {
     if (event.key === 'Enter' && !event.shiftKey && !event.ctrlKey && !event.altKey) {
         event.preventDefault();
@@ -11,7 +62,7 @@ document.getElementById('promptText').addEventListener('keydown', function(event
 });
 
 // monitor if extractButton is clicked
-document.getElementById('extractButton').addEventListener('click', function(event) {
+document.getElementById('extractButton').addEventListener('click', function() {
     var button = document.getElementById("extractButton");
     button.disabled = true;
     const sourceText = getSourceText();
@@ -20,7 +71,7 @@ document.getElementById('extractButton').addEventListener('click', function(even
         button.disabled = false;
     }
     else {
-        const extractPrompt = "Extract 10 or less keywords, add a number before each keyword: "
+        const extractPrompt = "Extract only important keywords, add a number before each keyword: "
         const promptText = extractPrompt + sourceText;
         console.log(promptText);
         loading_on();
@@ -28,20 +79,20 @@ document.getElementById('extractButton').addEventListener('click', function(even
     }
 });
 
-// function to get text from sourceText
-function getSourceText() {
-    var sourceText = document.getElementById("sourceText").value;
-    return sourceText;
-}
+// monitor if goButton is clicked
+document.getElementById('goButton').addEventListener('click', function() {
+    readInput();
+});
+
 
 function readInput() {
-    var sourceText = document.getElementById("sourceText").value;
-    var promptText = document.getElementById("promptText").value;
+    let sourceText = getSourceText();
+    let promptText = getPromptText();
     if (promptText.trim() === "") {
         showPromptAlert();
     } else {
         closePromptAlert();
-        var button = document.getElementById("goButton");
+        let button = document.getElementById("goButton");
         button.disabled = true;
         loading_on();
         if (sourceText.trim() === "") {
@@ -49,11 +100,11 @@ function readInput() {
         } else {
             var final_input = promptText + ": "+sourceText;
         }
-        runGPT(final_input);
+        getGPTAnswer(final_input);
     }
 }
 
-function runGPT(final_input) {
+function getGPTAnswer(final_input) {
     fetch('/gpt', {
         method: 'POST',
         body: JSON.stringify({'final_input': final_input}),
@@ -96,7 +147,7 @@ function getKeyTerms(sourceText) {
         return response.json();
     })
     .then(data => {
-        newStr = data.reply.replace(/(\d+\.)/g, "<br/>$1"); // add line break before number
+        newStr = data.reply.replace(/(\d+\.)/g, "\n$1"); // add line break before number
         document.getElementById("keyTerms").innerHTML = newStr;
     })
     .then(() => {

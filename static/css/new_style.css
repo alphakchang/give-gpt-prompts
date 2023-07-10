@@ -6,13 +6,13 @@ textarea {
     resize: none;
 }
 
-.customRow {
-    display: flex;
-    justify-content: space-between;
-}
 
 .alert {
     display: none;
+}
+
+.hovered {
+    border: 3px solid #ced4da;
 }
 
 /* Start of Loading Animation */
