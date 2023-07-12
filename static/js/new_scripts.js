@@ -6,11 +6,11 @@ const tooltips = document.querySelectorAll('.tt')
 
 // Select the sourceText & promptText elements by their IDs
 var sourceText = document.getElementById('sourceText');
-var keyTerms = document.getElementById('keyTerms');
+var promptText = document.getElementById('promptText');
 
 // Add the event listeners to the desired elements
 addScrollListeners(sourceText);
-addScrollListeners(keyTerms);
+addScrollListeners(promptText);
 
 function addScrollListeners(div) {
     div.addEventListener('mouseover', function() {
@@ -153,16 +153,16 @@ function getKeyTerms(sourceText) {
     .then(() => {
         loading_off();
         closeOverloadAlert();
-        showKeyTerms();
+        // showKeyTerms();
         var button = document.getElementById("extractButton");
         button.disabled = false;
     })
 }
 
-function showKeyTerms() {
-    var div = document.getElementById('keyTerms');
-    div.style.display = 'block';
-}
+// function showKeyTerms() {
+//     var div = document.getElementById('keyTerms');
+//     div.style.display = 'block';
+// }
 
 function showPromptOutput() {
     var div = document.getElementById('output');

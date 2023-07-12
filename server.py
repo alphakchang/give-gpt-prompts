@@ -18,7 +18,7 @@ def gpt():
         model='gpt-4',
         messages=[
             {"role": "system",
-             "content": "You are a GPT-4 assistant who will be helping employees from Alpha CRC, a company that specializes in localization, started in 1987. If asked to translate, you will give a very natural and fluent translation."},
+             "content": "You are a GPT-4 assistant who will be helping employees from Alpha CRC, a company that specializes in localization, started in 1987."},
             {"role": "user",
              "content": request.json["final_input"]}
         ],
